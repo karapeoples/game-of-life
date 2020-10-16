@@ -35,7 +35,6 @@ const Grid = () => {
         for (let i = 0; i < numRows; i++) {
           for (let k = 0; k < numCols; k++) {
             let neighbors = 0
-
             operations.forEach(([x, y]) => {
               const newI = i + x
               const newK = k + y
@@ -117,7 +116,11 @@ const seed = () => {
 							if (!running) {
 								runningRef.current = true
 								runSimulation()
-							}
+              }
+              else if (running){
+                setGenerations(0)
+                setGridBox(Array.from({ length: numRows }).map(() => Array.from({ length: numCols }).fill(0)))
+              }
 						}}>
 						{running ? 'Stop' : 'Start'}
         </button>
