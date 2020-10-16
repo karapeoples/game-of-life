@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Button from './components/Button'
 import Grid from './components/Grid'
 
 const App = () => {
@@ -10,7 +9,6 @@ const App = () => {
         <h3>John Conway's
         <br/>
         Game of Life</h3>
-        <Button/>
       </header>
       <Grid/>
     </div>
