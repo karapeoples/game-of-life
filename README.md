@@ -5,13 +5,13 @@ CS Build Week Conway's Game of Life in React
 # Rules of Conway's Game of Life
 
 ### Death
-⋅⋅* Underpopulation ~ If a Cell has two dead neighbors it dies from neglect. Who said social distancing is a good thing?
-⋅⋅* Overpoplutaion ~ If a Cell has more than three live neighbors it dies from crowding. Crowds are Dangerous too!
+* Underpopulation ~ If a Cell has two dead neighbors it dies from neglect. Who said social distancing is a good thing?
+* Overpoplutaion ~ If a Cell has more than three live neighbors it dies from crowding. Crowds are Dangerous too!
 
 ### Survivability
 
-⋅⋅* Existence ~ If a Cell has 3 live neighbors it survives until it end up in overpopulation or underpopulation but allows for instances of reproduction. Just like the porridge these conditions are just right!!
-⋅⋅* Reproduction ~ Any Dead Cell comes to Life if Existence is Correct and it has Three Live Neighbors. Just like that the relatives dies the next time round....
+* Existence ~ If a Cell has 3 live neighbors it survives until it end up in overpopulation or underpopulation but allows for instances of reproduction. Just like the porridge these conditions are just right!!
+* Reproduction ~ Any Dead Cell comes to Life if Existence is Correct and it has Three Live Neighbors. Just like that the relatives dies the next time round....
 
 
 # Cellular Automata
