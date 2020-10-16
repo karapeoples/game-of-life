@@ -20,6 +20,7 @@ body{
 button{
   background: white;
   color: steelblue;
+  font-size: calc(5px + 2vmin);
   align-items: center;
   margin: .2%;
   text-shadow: -1px 0 dodgerblue, 0 1px dodgerblue, 1px 0 dodgerblue, 0 -1px dodgerblue;
