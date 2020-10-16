@@ -16,7 +16,7 @@ CS Build Week Conway's Game of Life in React
 
 # Cellular Automata
 
-> Cellular Automaton (plural Celular Autmata) A way to show cell death and life in a 3d manor on a 2d Graph. Also an recursive algorithm that implements these ideas. As seen in my quotes above seeing the rules help us compare real life in any type of population how it would work due to the rules.
+> Cellular Automaton (plural Cellular Automata) A way to show cell death and life in a 3d manor on a 2d Graph. Also an recursive algorithm that implements these ideas. As seen in my quotes above seeing the rules help us compare real life in any type of population how it would work due to the rules.
 
 
 # Turing Completeness' of Conway's "Game of Life"
