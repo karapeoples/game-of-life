@@ -129,7 +129,7 @@ How can Conway's "Game of Life" be useful in real life?
 		#3- Any live cell with more than thee live neighbors dies (overpopulation).
 		#4- Any dead cell with exactly three live neighbors becomes  live cell (reproduction).`)
 	}
-
+//see if it will deploy
 
 
   return (
