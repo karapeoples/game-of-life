@@ -124,12 +124,12 @@ How can Conway's "Game of Life" be useful in real life?
 
 	const rules = () => {
 		alert(`The rules of "The Game of Life":
-		#1- Any live cell with fewer than two live neighbors dies (underpopulation).
-		#2- Any live cell with or three live neighnors live on to the next generation.
+		#1- Any live cell with fewer than two live neighbors dies (under-population).
+		#2- Any live cell with or three live neighbors live on to the next generation.
 		#3- Any live cell with more than thee live neighbors dies (overpopulation).
-		#4- Any dead cell with exactly three live neighbors becomes  live cell (reproduction).`)
+		#4- Any dead cell with exactly three live neighbors becomes a live cell (reproduction).`)
 	}
-//see if it will deploy
+
 
 
   return (
