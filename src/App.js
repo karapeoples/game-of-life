@@ -10,7 +10,7 @@ const App = () => {
         <br/>
         Game of Life</h3>
       </header>
-      <Grid/>
+        <Grid />
     </div>
   );
 }
