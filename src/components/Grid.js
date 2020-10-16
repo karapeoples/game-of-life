@@ -11,13 +11,16 @@ const operations = [
 	[1, 0],
 	[-1, 0],
 ]
+let numRows = 15
+let numCols = 15
+let numSecs = 100
 const Grid = () => {
-  const numRows = 25
-  const numCols = 25
+
 
   const [gridBox, setGridBox] = useState(Array.from({ length: numRows }).map(() => Array.from({ length: numCols }).fill(0)))
   const [running, setRunning] = useState(false)
-  const [generations, setGenerations]= useState(0)
+  const [generations, setGenerations] = useState(0)
+
 
   const runningRef = useRef(running)
   runningRef.current = running
@@ -32,6 +35,7 @@ const Grid = () => {
         for (let i = 0; i < numRows; i++) {
           for (let k = 0; k < numCols; k++) {
             let neighbors = 0
+
             operations.forEach(([x, y]) => {
               const newI = i + x
               const newK = k + y
@@ -51,10 +55,25 @@ const Grid = () => {
       })
     })
 
-    setTimeout(runSimulation, 100)
+    setTimeout(runSimulation, numSecs)
   }, [])
 
+  const ten = () => {
+    numRows = 10
+		numCols = 10
+		setGridBox(Array.from({ length: numRows }).map(() => Array.from({ length: numCols }).fill(0)))
+}
+const fifty = () => {
+  numRows = 50
+  numCols = 50
+  setGridBox(Array.from({ length: numRows }).map(() => Array.from({ length: numCols }).fill(0)))
+}
 
+  const quarter = () => {
+    numRows = 25
+		numCols = 25
+		setGridBox(Array.from({ length: numRows }).map(() => Array.from({ length: numCols }).fill(0)))
+  }
 const seed = () => {
     setGridBox((g) => {
       return produce(g, (gridCopy) => {
@@ -68,14 +87,30 @@ const seed = () => {
       })
     })
 }
-
+  const fast = () => {
+    numSecs = 25
+    setRunning(!running)
+		if (!running) {
+			runningRef.current = true
+			runSimulation()
+		}
+  }
+   const slow = () => {
+				numSecs = 1000
+				setRunning(!running)
+				if (!running) {
+					runningRef.current = true
+					runSimulation()
+				}
+			}
 
   return (
 			<section style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 				<div className='App-header'>
-        <h4> Generations: {generations}</h4>
-      </div>
-					<div className='App-header'>
+					<h4> Generations: {generations}</h4>
+				</div>
+
+				<div className='App-header'>
 					<button
 						onClick={() => {
 							setRunning(!running)
@@ -85,12 +120,24 @@ const seed = () => {
 							}
 						}}>
 						{running ? 'Stop' : 'Start'}
-					</button>
+        </button>
+         <button onClick ={fast}>Fast</button>
+         <button onClick ={slow}>Slow</button>
 					<button
-          onClick={() => { setGenerations(0); setRunning(false);setGridBox(Array.from({ length: numRows }).map(() => Array.from({ length: numCols }).fill(0))) }}>
+						onClick={() => {
+							setGenerations(0)
+							setRunning(false)
+							setGridBox(Array.from({ length: numRows }).map(() => Array.from({ length: numCols }).fill(0)))
+						}}>
 						Clear
 					</button>
 					<button onClick={seed}>Seed</button>
+				</div>
+				<div className='App-header'>
+        <button onClick={ten}>10x10 Grid</button>
+          <button onClick={quarter}>25x25 Grid</button>
+					<button onClick={fifty}>50x50 Grid</button>
+
 				</div>
 				<div style={{ display: 'grid', gridTemplateColumns: `repeat(${numCols}, 20px)` }}>
 					{gridBox.map((mapRows, i) =>
