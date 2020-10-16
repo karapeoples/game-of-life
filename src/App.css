@@ -17,5 +17,17 @@ body{
   margin: 0 auto;
 }
 
-/* GRID ELEMENT */
+button{
+  background: white;
+  color: steelblue;
+  align-items: center;
+  margin: .2%;
+  text-shadow: -1px 0 dodgerblue, 0 1px dodgerblue, 1px 0 dodgerblue, 0 -1px dodgerblue;
+  box-shadow: 2px 2px 5px black
+}
+button:hover{
+  background: navy;
+  color: white;
+  text-shadow: -1px 0 steelblue, 0 1px steelblue, 1px 0 steelblue, 0 -1px steelblue;
+}
 

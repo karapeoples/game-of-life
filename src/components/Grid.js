@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useRef } from 'react'
 import produce from 'immer'
 
+
 const operations = [
 	[0, 1],
 	[1, 1],
@@ -101,14 +102,47 @@ const seed = () => {
 					runningRef.current = true
 					runSimulation()
 				}
-			}
+	 }
+
+	const about = () => {
+		alert(`Who is John Conway?
+	John Horton Conway(12/26/1937 - 04/11/2020) an English mathematician.
+	He was was active in a multitude of different theories, such as, finite groups, knot theory, number theory,
+	combinatorial game theory and coding theory.
+	However, he was mostly known for his invention of the cellular automaton known as "The Game of Life"`)
+	}
+
+	const aboutGame = () => {
+		alert(`What is "The Game of Life?"
+	The game of life is a cellular automaton ( A collection of "colored" cells on a grid of specified shape that
+	evolves through a number of discrete time steps according to a set of rules based on the states of
+	neighboring cells.)
+How can Conway's "Game of Life" be useful in real life?
+	It can help visualize how human or animal groups themselves rotate through environments or migrate through them in
+	search of more resources.`)
+	}
+
+	const rules = () => {
+		alert(`The rules of "The Game of Life":
+		#1- Any live cell with fewer than two live neighbors dies (underpopulation).
+		#2- Any live cell with or three live neighnors live on to the next generation.
+		#3- Any live cell with more than thee live neighbors dies (overpopulation).
+		#4- Any dead cell with exactly three live neighbors becomes  live cell (reproduction).`)
+	}
+
+
 
   return (
 			<section style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 				<div className='App-header'>
 					<h4> Generations: {generations}</h4>
 				</div>
+      <div className='App-header'>
+				<button onClick={rules}>Rules</button>
+				<button onClick={aboutGame}>About Game</button>
+				<button onClick={about}>About Conway</button>
 
+			</div>
 				<div className='App-header'>
 					<button
 						onClick={() => {
@@ -116,16 +150,15 @@ const seed = () => {
 							if (!running) {
 								runningRef.current = true
 								runSimulation()
-              }
-              else if (running){
-                setGenerations(0)
-                setGridBox(Array.from({ length: numRows }).map(() => Array.from({ length: numCols }).fill(0)))
-              }
+							} else if (running) {
+								setGenerations(0)
+								setGridBox(Array.from({ length: numRows }).map(() => Array.from({ length: numCols }).fill(0)))
+							}
 						}}>
 						{running ? 'Stop' : 'Start'}
-        </button>
-         <button onClick ={fast}>Fast</button>
-         <button onClick ={slow}>Slow</button>
+					</button>
+					<button onClick={fast}>Fast</button>
+					<button onClick={slow}>Slow</button>
 					<button
 						onClick={() => {
 							setGenerations(0)
@@ -137,12 +170,11 @@ const seed = () => {
 					<button onClick={seed}>Seed</button>
 				</div>
 				<div className='App-header'>
-        <button onClick={ten}>10x10 Grid</button>
-          <button onClick={quarter}>25x25 Grid</button>
+					<button onClick={ten}>10x10 Grid</button>
+					<button onClick={quarter}>25x25 Grid</button>
 					<button onClick={fifty}>50x50 Grid</button>
-
 				</div>
-				<div style={{ display: 'grid', gridTemplateColumns: `repeat(${numCols}, 20px)` }}>
+				<div style={{ boxShadow: '12px 12px 14px black', display: 'grid', gridTemplateColumns: `repeat(${numCols}, 20px)` }}>
 					{gridBox.map((mapRows, i) =>
 						mapRows.map((col, k) =>
 							running ? (
@@ -152,7 +184,7 @@ const seed = () => {
 										width: 20,
 										height: 20,
 										background: gridBox[i][k] ? 'steelblue' : 'white',
-										border: '1px solid navy',
+                    border: '1px solid navy',
 									}}
 								/>
 							) : (
