@@ -131,6 +131,12 @@ const Grid = () => {
 							gridCopy[i][k] = 0
 						} else if (g[i][k] === 0 && neighbors === 3) {
 							gridCopy[i][k] = 1
+								if (gridCopy[i][k] === 1) {
+									setGenerations((prevCount) => prevCount + 1)
+								}
+								else {
+									setGenerations((prevCount) => prevCount)
+								}
 						}
 					}
 
@@ -138,8 +144,8 @@ const Grid = () => {
 		})
 	})
 
-	//#Recursive Implmentation
-	setTimeout(runSimulation, numSecs, setGenerations((prevCount) => prevCount + 1))
+	//#Recursive Implementation
+	setTimeout(runSimulation, numSecs)
   }, [])
 
 
