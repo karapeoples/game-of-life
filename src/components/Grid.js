@@ -131,7 +131,7 @@ const Grid = () => {
 							gridCopy[i][k] = 0
 						} else if (g[i][k] === 0 && neighbors === 3) {
 							gridCopy[i][k] = 1
-								if (gridCopy[i][k] === 1) {
+								if (g[i][k] === 0 && neighbors === 3) {
 									setGenerations((prevCount) => prevCount + 1)
 								}
 								else {
