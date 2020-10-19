@@ -123,6 +123,7 @@ const Grid = () => {
 						operations.forEach(([x, y]) => {
 							const newI = i + x
 							const newK = k + y
+							//#Makes Grid Stop at Edges
 							if (newI >= 0 && newI < numRows && newK >= 0 && newK < numCols) {
 								neighbors += g[newI][newK]
 							}
@@ -131,12 +132,6 @@ const Grid = () => {
 							gridCopy[i][k] = 0
 						} else if (g[i][k] === 0 && neighbors === 3) {
 							gridCopy[i][k] = 1
-								if (g[i][k] === 0 && neighbors === 3) {
-									setGenerations((prevCount) => prevCount + 1)
-								}
-								else {
-									setGenerations((prevCount) => prevCount)
-								}
 						}
 					}
 
@@ -145,7 +140,7 @@ const Grid = () => {
 	})
 
 	//#Recursive Implementation
-	setTimeout(runSimulation, numSecs)
+	setTimeout(runSimulation, numSecs, setGenerations((prevCount) => prevCount + 1))
   }, [])
 
 
